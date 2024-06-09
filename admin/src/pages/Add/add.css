@@ -1,0 +1,68 @@
+.add {
+    width: 70%;
+    margin-left: max(5vw, 25px);
+    margin-top: 50px;
+    color: black;
+    font-size: 16px;
+}
+
+.add form {
+    gap: 20px;
+}
+
+.add-image-upload img {
+    max-width: 120px ;
+    max-height: 120px ;
+}
+
+.add-tour-name,
+.add-tour-desc {
+    width: max(40%, 280px);
+}
+
+.add-tour-name input,
+.add-tour-desc textarea {
+    padding: 10px;
+    resize: none;
+}
+
+.add-tour-price {
+    display: flex;
+    gap: 30px;
+}
+
+.add-tour-price select {
+    width: max-content;
+    padding: 10px;
+}
+
+.add-tour-price input {
+    width: 120px;
+    padding: 10px;
+}
+
+
+
+.add-btn {
+    width: 120px;
+    border: none;
+    padding: 10px;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width:600px) {
+    .add-category-price{
+        flex-direction: column;
+    }
+    
+}
+.price-input {
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  

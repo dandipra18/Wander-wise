@@ -1,0 +1,40 @@
+.admin-comments {
+  padding: 20px;
+}
+
+.admin-comments h2 {
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 24px;
+}
+
+.comments-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: auto;
+}
+
+.comments-table th,
+.comments-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+}
+
+.comments-table th {
+  background-color: #f4f4f4;
+}
+
+.comments-table button {
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.comments-table button:hover {
+  background-color: darkred;
+}

@@ -1,0 +1,20 @@
+.update-remove{
+    display: flex;
+    gap: 20px;
+}
+.update-remove button:nth-child(1){
+    background-color: rgb(57, 57, 182);
+    border-radius: 5px;
+}
+.update-remove button:nth-child(2){
+    background-color: rgb(215, 61, 61);
+    border-radius: 5px;
+}
+.price-input {
+    padding: 10px;
+    width: 100%;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  

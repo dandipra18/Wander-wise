@@ -1,0 +1,40 @@
+.add-article {
+    padding: 20px;
+  }
+  
+  .add-article h2 {
+    margin-bottom: 20px;
+  }
+  
+  .add-article form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .add-article label {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .add-article input,
+  .add-article textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+  }
+  
+  .add-article button {
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-article button:hover {
+    background-color: darkred;
+  }
+  
