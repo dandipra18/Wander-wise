@@ -23,13 +23,18 @@ function ManageArticles() {
       if (response.data.success) {
         setArticles(articles.filter((article) => article._id !== id));
         // Delete comments associated with the deleted article
-        await axios.delete(`${DOMAIN}/api/comments/article/${id}`);
+        const commentResponse = await axios.delete(
+          `${DOMAIN}/api/comments/article/${id}`
+        );
+        if (!commentResponse.data.success) {
+          Swal.fire("Error", "Failed to delete comments", "error");
+        }
       } else {
         Swal.fire("Error", "Failed to delete article", "error");
       }
     } catch (error) {
       console.error("Error deleting article or comments", error);
-      Swal.fire("Error", "Failed to delete article", "error");
+      Swal.fire("Error", "Failed to delete article or comments", "error");
     }
   };
 
