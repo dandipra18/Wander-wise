@@ -111,6 +111,7 @@ function Add() {
               <option value="Yogyakarta">Yogyakarta</option>
               <option value="Medan">Medan</option>
               <option value="Padang">Padang</option>
+              <option value="Aceh">Aceh</option>
             </select>
           </div>
           <div className="add-price flex-col">

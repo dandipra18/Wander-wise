@@ -1,7 +1,7 @@
 import CommentModel from "../models/comment.model.js";
 
 // Tambahkan komentar
-export const addComment = async (req, res) => {
+const addComment = async (req, res) => {
   try {
     const { articleId, name, comment } = req.body;
     const newComment = new CommentModel({ articleId, name, comment });
@@ -14,7 +14,7 @@ export const addComment = async (req, res) => {
 };
 
 // Dapatkan komentar berdasarkan ID artikel
-export const getCommentsByArticleId = async (req, res) => {
+const getCommentsByArticleId = async (req, res) => {
   try {
     const { id } = req.params;
     const comments = await CommentModel.find({ articleId: id }).populate('articleId', 'title');
@@ -26,7 +26,7 @@ export const getCommentsByArticleId = async (req, res) => {
 };
 
 // Dapatkan semua komentar
-export const getAllComments = async (req, res) => {
+const getAllComments = async (req, res) => {
   try {
     const comments = await CommentModel.find().populate('articleId', 'title');
     res.json({ success: true, comments });
@@ -36,7 +36,7 @@ export const getAllComments = async (req, res) => {
   }
 };
 
-export const deleteComment = async (req, res) => {
+const deleteComment = async (req, res) => {
   try {
     const { id } = req.params;
     const comment = await CommentModel.findByIdAndDelete(id);
@@ -49,3 +49,4 @@ export const deleteComment = async (req, res) => {
     res.status(500).json({ success: false, message: "Terjadi kesalahan saat menghapus komentar." });
   }
 };
+export { addComment, getCommentsByArticleId, getAllComments, deleteComment};

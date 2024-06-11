@@ -1,6 +1,5 @@
 import orderModel from "../models/order.model.js";
 import userModel from "../models/user.model.js";
-import { CLIENT_DOMAIN } from "../config/client.js";
 import { emitOrderStatusUpdate } from "../server.js";
 
 
@@ -28,9 +27,6 @@ const placeOrder = async (req, res) => {
     });
   }
 };
-
-
-
 
 const userOrder = async (req, res) => {
   try {
