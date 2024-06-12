@@ -24,10 +24,15 @@
     text-align: center;
     margin: 20px 0;
     overflow-x: scroll;
+    padding: 5px;
 }
 
 .explore-tour-list::-webkit-scrollbar {
     display: none;
+}
+
+.explore-tour-list-item {
+    transition: transform .2s;
 }
 
 .explore-tour-list-item:hover {
@@ -41,7 +46,8 @@
     border-radius: 50%;
     transition: .2s;
 }
-.explore-tour-list-item .active{
+
+.explore-tour-list-item .active {
     opacity: 0.5;
 }
 
@@ -59,8 +65,8 @@
     border: none;
 }
 
-@media(max-width: 1050px){
-    .explore-tour-text{
+@media(max-width: 1050px) {
+    .explore-tour-text {
         max-width: 100%;
         font-size: 14px;
     }    
