@@ -42,7 +42,7 @@ app.use("/api/order", orderRouter);
 app.use("/api/articles", articleRouter);
 
 //comment api
-app.use("/api/comments", commentRouter); // Use the comment routes
+app.use("/api/comments", commentRouter); 
 
 app.get("/", (req, res) => {
   res.send("Hello");
