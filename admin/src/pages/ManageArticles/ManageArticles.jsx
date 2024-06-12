@@ -22,11 +22,18 @@ function ManageArticles() {
       const response = await axios.delete(`${DOMAIN}/api/articles/${id}`);
       if (response.data.success) {
         setArticles(articles.filter((article) => article._id !== id));
-        // Delete comments associated with the deleted article
         const commentResponse = await axios.delete(
           `${DOMAIN}/api/comments/article/${id}`
         );
-        if (!commentResponse.data.success) {
+        if (commentResponse.data.success) {
+          setArticles(articles.filter((article) => article._id !== id));
+          Swal.fire({
+            icon: "success",
+            title: "Artikel berhasil dihapus!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else {
           Swal.fire("Error", "Failed to delete comments", "error");
         }
       } else {

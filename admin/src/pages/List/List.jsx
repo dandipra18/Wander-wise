@@ -23,6 +23,14 @@ function List() {
   useEffect(() => {
     fetchList();
   }, []);
+  const formatRupiah = (price) => {
+    return price.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+  };
 
   return (
     <>
@@ -46,7 +54,7 @@ function List() {
                 />
                 <p>{item.name}</p>
                 <p>{item.location}</p>
-                <p>Rp.{item.price}</p>
+                <p>{formatRupiah(item.price)}</p>
                 <Link to={`/update/${item._id}`}>
                   <p className="cursor-pointer">
                     <img src={assets.edit_icon} className="edit-icon" />
