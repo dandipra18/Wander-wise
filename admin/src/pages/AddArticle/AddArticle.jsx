@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { DOMAIN } from "../../config";
+import Swal from "sweetalert2";
 import "./AddArticle.css";
 
 function AddArticle() {
@@ -27,17 +28,34 @@ function AddArticle() {
     formData.append("content", article.content);
     formData.append("image", article.image);
 
-    const response = await axios.post(`${DOMAIN}/api/articles`, formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    });
+    try {
+      const response = await axios.post(`${DOMAIN}/api/articles`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
-    if (response.data.success) {
-      alert("Article added successfully!");
-      setArticle({ title: "", content: "", image: null });
-    } else {
-      alert("Failed to add article");
+      if (response.data.success) {
+        Swal.fire({
+          icon: "success",
+          title: "Article added successfully!",
+          showConfirmButton: false,
+          timer: 1500,
+        });
+        setArticle({ title: "", content: "", image: null });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: "Failed to add article",
+          text: response.data.message || "An error occurred",
+        });
+      }
+    } catch (error) {
+      Swal.fire({
+        icon: "error",
+        title: "Failed to add article",
+        text: error.message || "An error occurred",
+      });
     }
   };
 

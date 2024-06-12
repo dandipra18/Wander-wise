@@ -28,7 +28,14 @@ function Ticket() {
       }
     });
   };
-
+  const formatRupiah = (price) => {
+    return price.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+  };
   return (
     <>
       {getTotalTicketAmount() > 0 ? (
@@ -55,9 +62,12 @@ function Ticket() {
                           alt="product"
                         />
                         <p>{item.name}</p>
-                        <p>Rp.{item.price}</p>
+
+                        <p>{formatRupiah(item.price)}</p>
                         <p>{ticketItems[item._id]}</p>
-                        <p>Rp.{item.price * ticketItems[item._id]}</p>
+                        <p>
+                          Rp.{formatRupiah(item.price * ticketItems[item._id])}
+                        </p>
                         <p
                           onClick={() => handleRemoveFromTicket(item._id)}
                           className="cross"

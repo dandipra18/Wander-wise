@@ -17,15 +17,23 @@ function ToursDetail() {
   if (!toursItem) {
     return <div>Loading...</div>;
   }
+  const formatRupiah = (price) => {
+    return price.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+  };
 
   return (
     <div className="tours-detail">
       <img src={`${DOMAIN}/images/${toursItem.image}`} alt={toursItem.name} />
       <h2>{toursItem.name}</h2>
       <p>{toursItem.description}</p>
-      <p>Price: Rp.{toursItem.price}</p>
+      <p>{formatRupiah(toursItem.price)}</p>
       <button onClick={() => addToTicket(toursItem._id)}>
-        Add to Ticket{" "}
+        Tambahkan ke tiket{" "}
         {ticketItems[toursItem._id] ? `(${ticketItems[toursItem._id]})` : ""}
       </button>
     </div>
