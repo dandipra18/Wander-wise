@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-unused-vars
 import React, { useContext } from "react";
 import "./ticket.css";
 import { StoreContext } from "../../context/StoreContext";
@@ -5,6 +6,8 @@ import { assets } from "../../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { DOMAIN } from "../../config";
 import Swal from "sweetalert2";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTimes } from '@fortawesome/free-solid-svg-icons'; // Import ikon silang
 
 function Ticket() {
   const { ticketItems, tours_list, removeFromTicket, getTotalTicketAmount } =
@@ -58,12 +61,11 @@ function Ticket() {
                         <p>Rp.{item.price}</p>
                         <p>{ticketItems[item._id]}</p>
                         <p>Rp.{item.price * ticketItems[item._id]}</p>
-                        <p
+                        <FontAwesomeIcon
+                          icon={faTimes}
                           onClick={() => handleRemoveFromTicket(item._id)}
                           className="cross"
-                        >
-                          x
-                        </p>
+                        />
                       </div>
                       <hr />
                     </div>

@@ -1,6 +1,12 @@
 .ticket{
     margin-top: 100px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
 }
+
 .ticket-items-title{
     display: grid;
     grid-template-columns: 1fr 1.5fr 1fr 1fr 1fr 0.5fr;
@@ -59,6 +65,11 @@
     cursor: pointer;
 }
 
+.ticket-total button:hover{
+    background-color: #4caf50;
+    transform: scale(1.05);
+}
+
 .empty-ticket{
     display: flex;
     flex-direction: column;
@@ -90,3 +101,4 @@
         width: 100%;
     }
 }
+

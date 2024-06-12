@@ -9,7 +9,7 @@ function ExploreTour({ location, setLocation }) {
       <div className="explore-tour" id="explore-tour">
         <h1>Jelajahi berbagai destinasi wisata</h1>
         <p className="explore-tour-text">
-          telah kami pilih khusus untuk Anda. Dari pantai yang memukau hingga
+          Telah kami pilih khusus untuk Anda. Dari pantai yang memukau hingga
           pegunungan yang menakjubkan, setiap lokasi menawarkan pengalaman unik
           yang tak terlupakan. Mulailah petualangan Anda bersama kami dan
           temukan keindahan dunia yang sesungguhnya.

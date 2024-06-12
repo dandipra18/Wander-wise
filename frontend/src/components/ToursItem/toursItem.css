@@ -1,129 +1,166 @@
 .tours-item {
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    overflow: hidden;
-    transition: transform 0.3s;
-    
-    
-  }
-  
-  .tours-item:hover {
-    transform: scale(1.05);
-  }
-  
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, background-color 0.3s;
+}
+
+.tours-item:hover {
+  background-color: #4caf50;
+  transform: scale(1.05);
+}
+
+.tours-item-img-container {
+  cursor: pointer;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.tours-item-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tours-item-info {
+  padding: 10px;
+}
+
+.tours-item-name-rating {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tours-item-desc {
+  font-size: 14px;
+  color: #555;
+}
+
+.read-more {
+  color: #007bff;
+  cursor: pointer;
+}
+
+.tours-item-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.popup-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+}
+
+.close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.popup-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup-item-image {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+.popup-item-info h2 {
+  margin-bottom: 10px;
+}
+
+.popup-cart-actions {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.popup-item-counter {
+  display: flex;
+  align-items: center;
+}
+
+.popup-item-counter p {
+  margin: 0 10px;
+  font-size: 16px;
+}
+
+@media (max-width: 500px) {
   .tours-item-img-container {
-    cursor: pointer;
-    width: 100%;
-    height: 200px;
-    overflow: hidden;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    border-radius: 8px;
-    overflow: hidden;
+      height: 150px;
   }
-  
-  .tours-item-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-  
-  .tours-item-info {
-    padding: 10px;
-  }
-  
+
   .tours-item-name-rating {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 10px;
   }
-  
+
   .tours-item-desc {
-    font-size: 14px;
-    color: #555;
+      font-size: 12px;
   }
-  
-  .read-more {
-    color: #007bff;
-    cursor: pointer;
-  }
-  
+
   .tours-item-price {
-    font-size: 16px;
-    font-weight: bold;
-    color: #333;
+      font-size: 14px;
   }
-  
-  .popup-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
-  .popup-content {
-    background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    position: relative;
-    max-width: 500px;
-    width: 100%;
-  }
-  
-  .close-popup {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    cursor: pointer;
-    font-size: 20px;
-  }
-  
-  .popup-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-  
+
   .popup-item-image {
-    width: 100%;
-    height: 300px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 20px;
+      height: 200px;
   }
-  
+
   .popup-item-info h2 {
-    margin-bottom: 10px;
+      font-size: 20px;
   }
-  
-  .popup-cart-actions {
-    margin-top: 20px;
-    display: flex;
-    align-items: center;
-  }
-  
-  .popup-item-counter {
-    display: flex;
-    align-items: center;
-  }
-  
+
   .popup-item-counter p {
-    margin: 0 10px;
-    font-size: 16px;
+      font-size: 14px;
   }
-  @media (max-width:500px) {
-    .tours-item-name-rating {
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        align-items: start;
-        gap: 10px;
-        margin-bottom: 10px;
-    }
+
+  .popup-content {
+      padding: 10px;
+  }
+
+  .popup-cart-actions {
+      flex-direction: column;
+      align-items: stretch;
+  }
+
+  .popup-item-counter {
+      justify-content: space-between;
+  }
 }
