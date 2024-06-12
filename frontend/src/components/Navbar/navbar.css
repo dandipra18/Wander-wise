@@ -3,9 +3,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #f8f9fa;
-   
-   
 }
 
 .navbar .logo {
@@ -23,6 +20,7 @@
     list-style: none;
     gap: 40px;
     font-size: 18px;
+    transition: all 0.3s;
 }
 
 .navbar-tour a {
@@ -37,7 +35,6 @@
 .navbar-tour a:hover,
 .navbar-tour .active {
     color: black;
- 
 }
 
 .navbar-tour a::before {
@@ -62,7 +59,7 @@
 .navbar-right {
     display: flex;
     align-items: center;
-    gap: 40px;
+    gap: 20px;
 }
 
 .navbar-right img {
@@ -78,7 +75,7 @@
     background: transparent;
     font-size: 16px;
     color: #49557e;
-    border: 1px solid red;
+    border: 1px solid #4caf50;
     padding: 10px 30px;
     border-radius: 50px;
     cursor: pointer;
@@ -122,8 +119,9 @@
     padding: 12px 25px;
     border-radius: 4px;
     outline: 2px solid white;
-    border: 1px solid red;
+    border: 1px solid #4caf50;
     list-style: none;
+    background-color: #e2e2e2;
 }
 
 .nav-profile-dropdown li {
@@ -139,6 +137,20 @@
 
 .nav-profile-dropdown li:hover {
     color: red;
+}
+
+.hamburger {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+    transition: transform 0.3s;
+}
+
+.hamburger:hover {
+    transform: scale(1.1);
 }
 
 @media (max-width: 1050px) {
@@ -192,4 +204,43 @@
     .navbar-tour {
         display: none;
     }
+    
+    .hamburger {
+        display: block;
+    }
+}
+
+.navbar-tour.open {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background-color: white;
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    z-index: 112;
+}
+
+.navbar-tour.open a {
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.navbar-tour.open a:hover {
+    background-color: #f1f1f1;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 110;
 }

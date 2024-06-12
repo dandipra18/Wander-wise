@@ -8,6 +8,7 @@ import { StoreContext } from "../../context/StoreContext";
 // eslint-disable-next-line react/prop-types
 function Navbar({ setShowLogin }) {
   const [tour, setTour] = useState("home");
+  const [menuOpen, setMenuOpen] = useState(false);
   // eslint-disable-next-line no-unused-vars
   const { getTotalTicketAmount, token, setToken } = useContext(StoreContext);
   const navigate = useNavigate();
@@ -21,6 +22,7 @@ function Navbar({ setShowLogin }) {
 
   return (
     <>
+      {menuOpen && <div className="overlay" onClick={() => setMenuOpen(false)}></div>}
       <div className="navbar">
         <Link to={"/"}>
           <img
@@ -30,32 +32,44 @@ function Navbar({ setShowLogin }) {
             alt="logo"
           />
         </Link>
-        <ul className="navbar-tour">
+        <ul className={`navbar-tour ${menuOpen ? "open" : ""}`}>
           <Link
             to="/"
             className={tour === "home" ? "active" : ""}
-            onClick={() => setTour("home")}
+            onClick={() => {
+              setTour("home");
+              setMenuOpen(false);
+            }}
           >
             Home
           </Link>
           <a
             href="#explore-tour"
             className={tour === "tour" ? "active" : ""}
-            onClick={() => setTour("tour")}
+            onClick={() => {
+              setTour("tour");
+              setMenuOpen(false);
+            }}
           >
             Jelajahi
           </a>
           <a
             href="#articles"
             className={tour === "articles" ? "active" : ""}
-            onClick={() => setTour("articles")}
+            onClick={() => {
+              setTour("articles");
+              setMenuOpen(false);
+            }}
           >
             Artikel
           </a>
           <a
             href="#contact-us"
             className={tour === "contactus" ? "active" : ""}
-            onClick={() => setTour("contactus")}
+            onClick={() => {
+              setTour("contactus");
+              setMenuOpen(false);
+            }}
           >
             Contact Us
           </a>
@@ -91,6 +105,9 @@ function Navbar({ setShowLogin }) {
           ) : (
             <button onClick={() => setShowLogin(true)}>Sign In</button>
           )}
+          <button className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
+            &#9776;
+          </button>
         </div>
       </div>
     </>
