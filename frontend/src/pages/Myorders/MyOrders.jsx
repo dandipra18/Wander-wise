@@ -75,7 +75,14 @@ function MyOrders() {
       fetchData();
     }
   }, [token]);
-
+  const formatRupiah = (price) => {
+    return price.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+  };
   return (
     <>
       {token ? (
@@ -100,7 +107,7 @@ function MyOrders() {
                         </span>
                       ))}
                     </p>
-                    <p>Rp.{order.amount}</p>
+                    <p>{formatRupiah(order.amount)}</p>
                     <p>Jumlah Tiket: {order.items.length}</p>
                     <p>
                       <span>&#x25cf;</span>

@@ -10,10 +10,10 @@ const addArticle = async (req, res) => {
     const image = req.file.filename;
     const newArticle = new articleModel({ title, content, image });
     await newArticle.save();
-    res.json({ success: true, message: "Article added successfully." });
+    res.json({ success: true, message: "Artikel berhasil ditambahkan." });
   } catch (error) {
     console.error(error);
-    res.json({ success: false, message: "Failed to add article." });
+    res.json({ success: false, message: "Gagal menambahkan artikel." });
   }
 };
 
@@ -24,7 +24,7 @@ const getArticles = async (req, res) => {
     res.json({ success: true, articles });
   } catch (error) {
     console.error(error);
-    res.json({ success: false, message: "Failed to retrieve articles." });
+    res.json({ success: false, message: "Gagal mengambil artikel." });
   }
 };
 
@@ -34,12 +34,12 @@ const getArticleById = async (req, res) => {
     const { id } = req.params;
     const article = await articleModel.findById(id);
     if (!article) {
-      return res.status(404).json({ success: false, message: "Article not found" });
+      return res.status(404).json({ success: false, message: "Artikel tidak ditemukan" });
     }
     res.json({ success: true, article });
   } catch (error) {
     console.error(error);
-    res.json({ success: false, message: "Failed to retrieve article." });
+    res.json({ success: false, message: "Gagal mengambil artikel." });
   }
 };
 
@@ -53,10 +53,10 @@ const deleteArticle = async (req, res) => {
     }
     await articleModel.findByIdAndDelete(id);
     await commentModel.deleteMany({ articleId: id });
-    res.json({ success: true, message: "Article and related comments deleted successfully." });
+    res.json({ success: true, message: "Artikel dan komentar terkait berhasil dihapus." });
   } catch (error) {
     console.error(error);
-    res.json({ success: false, message: "Failed to delete article." });
+    res.json({ success: false, message: "Gagal menghapus artikel." });
   }
 };
 

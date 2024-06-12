@@ -5,6 +5,8 @@ import { assets } from "../../assets/assets";
 import { useNavigate } from "react-router-dom";
 import { DOMAIN } from "../../config";
 import Swal from "sweetalert2";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTimes } from "@fortawesome/free-solid-svg-icons"; // Import ikon silang
 
 function Ticket() {
   const { ticketItems, tours_list, removeFromTicket, getTotalTicketAmount } =
@@ -26,6 +28,15 @@ function Ticket() {
         removeFromTicket(itemId);
         Swal.fire("Dihapus!", "Item telah dihapus dari tiket.", "success");
       }
+    });
+  };
+
+  const formatRupiah = (price) => {
+    return price.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
     });
   };
 
@@ -55,15 +66,16 @@ function Ticket() {
                           alt="product"
                         />
                         <p>{item.name}</p>
-                        <p>Rp.{item.price}</p>
+                        <p>{formatRupiah(item.price)}</p>
                         <p>{ticketItems[item._id]}</p>
-                        <p>Rp.{item.price * ticketItems[item._id]}</p>
-                        <p
+                        <p>
+                          Rp.{formatRupiah(item.price * ticketItems[item._id])}
+                        </p>
+                        <FontAwesomeIcon
+                          icon={faTimes}
                           onClick={() => handleRemoveFromTicket(item._id)}
                           className="cross"
-                        >
-                          x
-                        </p>
+                        />
                       </div>
                       <hr />
                     </div>

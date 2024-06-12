@@ -8,7 +8,7 @@ import axios from "axios";
 import { assets } from "../../assets/assets";
 
 function List() {
-  const [ list, setList ] = useState([]);
+  const [list, setList] = useState([]);
 
   const fetchList = async () => {
     const response = await axios.get(`${DOMAIN}/api/tours/list`);
@@ -24,50 +24,51 @@ function List() {
     fetchList();
   }, []);
 
+  const formatRupiah = (price) => {
+    return price.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+  };
+
   return (
-    <>
-      <div className="list add flex-col">
-        <h1 className="header">Daftar Wisata</h1>
-        <div className="table-container">
-          <table className="list-table">
-            <thead>
-              <tr className="list-table-format title">
-                <th className="image-container">Gambar</th>
-                <th className="name-field">Nama</th>
-                <th>Lokasi</th>
-                <th>Harga</th>
-                <th>Action</th>
+    <div className="list add flex-col">
+      <h1 className="header">Daftar Wisata</h1>
+      <div className="table-container">
+        <table className="list-table">
+          <thead>
+            <tr className="list-table-format title">
+              <th className="image-container">Gambar</th>
+              <th className="name-field">Nama</th>
+              <th>Lokasi</th>
+              <th>Harga</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            {list.map((item, index) => (
+              <tr className="list-table-format" key={index}>
+                <td className="image-container">
+                  <img className="tour-image" src={`${DOMAIN}/images/` + item.image} alt={item.name} />
+                </td>
+                <td className="name-field">{item.name}</td>
+                <td>{item.location}</td>
+                <td>{formatRupiah(item.price)}</td>
+                <td className="action-button">
+                  <Link to={`/update/${item._id}`}>
+                    <p className="cursor-pointer">
+                      <img src={assets.edit_icon} className="edit-icon" alt="edit" />
+                    </p>
+                  </Link>
+                </td>
               </tr>
-            </thead>
-            <tbody>
-              {list.map((item, index) => {
-                return (
-                  <tr className="list-table-format" key={index}>
-                    <td className="image-container">
-                      <img
-                        className="tour-image"
-                        src={`${DOMAIN}/images/` + item.image}
-                        alt={item.name}
-                      />
-                    </td>
-                    <td className="name-field">{item.name}</td>
-                    <td>{item.location}</td>
-                    <td>Rp.{item.price}</td>
-                    <td className="action-button">
-                      <Link to={`/update/${item._id}`}>
-                        <p className="cursor-pointer">
-                          <img src={assets.edit_icon} className="edit-icon" />
-                        </p>
-                      </Link>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
-        </div>
+            ))}
+          </tbody>
+        </table>
       </div>
-    </>
+    </div>
   );
 }
 

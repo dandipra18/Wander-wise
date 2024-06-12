@@ -1,20 +1,30 @@
+/* Layout and overall styling */
 .place-order {
     display: flex;
-    align-items: start;
+    align-items: flex-start;
     justify-content: space-between;
     gap: 50px;
     margin-top: 100px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
 }
 
-.place-order-left {
+.place-order-left, .place-order-right {
     width: 100%;
-    max-width: max(30%, 500px);
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .place-order-left .title {
     font-size: 30px;
     font-weight: 600;
-    margin-bottom: 50px;
+    margin-bottom: 30px;
+    color: #333;
 }
 
 .place-order-left input {
@@ -24,6 +34,13 @@
     border: 1px solid #c5c5c5;
     border-radius: 4px;
     outline-color: red;
+    box-sizing: border-box;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.place-order-left input:focus {
+    border-color: #3085d6;
+    box-shadow: 0 0 5px rgba(48, 133, 214, 0.5);
 }
 
 .place-order-left .multi-fields {
@@ -38,21 +55,40 @@
 
 .place-order .cart-total button {
     margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #3085d6;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
 }
-.upi-btn{
+
+.place-order .cart-total button:hover {
+    background-color: #2874c4;
+}
+
+.upi-btn {
     margin: 0 !important;
     background-color: transparent !important;
 }
-.upi-btn img{
 
+.upi-btn img {
     width: 70px;
+    transition: transform 0.3s;
 }
-.upi-btn img:hover{
+
+.upi-btn img:hover {
     transform: scale(1.1);
-    transition: .3s;
 }
-@media (max-width:900px) {
+
+/* Responsive Design */
+@media (max-width: 900px) {
     .place-order {
         flex-direction: column;
+    }
+
+    .place-order-left, .place-order-right {
+        max-width: 100%;
     }
 }

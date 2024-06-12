@@ -53,7 +53,7 @@ function PlaceOrder() {
       if (response.data.success) {
         clearTicket();
         navigate("/manual-payment");
-        window.location.reload(); 
+        window.location.reload();
       } else {
         toast.error(response.data.message);
       }

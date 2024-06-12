@@ -74,6 +74,14 @@ function Orders() {
         return "";
     }
   };
+  const formatRupiah = (price) => {
+    return price.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+  };
 
   return (
     <>
@@ -99,7 +107,7 @@ function Orders() {
                 <p className="order-item-phone">{order.address.phone}</p>
               </div>
               <p>Items: {order.items.length}</p>
-              <p>Rp.{order.amount}</p>
+              <p>{formatRupiah(order.amount)}</p>
               <select
                 onChange={(e) => statusHandler(e, order._id)}
                 value={order.status}

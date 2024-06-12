@@ -5,7 +5,7 @@ import bali from './bali.jpg'
 import jakarta from './jakarta.jpg'
 import jogjakarta from './jogjakarta.jpg'
 import surabaya from './surabaya.jpg'
-import medan from './medan.jpg'
+import sumatera_utara from './medan.jpg'
 import bandung from './bandung.jpg'
 import padang from './padang.jpg'
 import aceh from './aceh.jpg'
@@ -39,8 +39,8 @@ export const assets = {
 
 export const tour_list = [
     {
-        tour_name: "Bali",
-        tour_image: bali
+        tour_name: "Aceh",
+        tour_image: aceh
     },
     {
         tour_name: "Jakarta",
@@ -51,8 +51,8 @@ export const tour_list = [
         tour_image: jogjakarta
     },
     {
-        tour_name: "Medan",
-        tour_image: medan
+        tour_name: "Sumatera Utara",
+        tour_image: sumatera_utara 
     },
     {
         tour_name: "Surabaya",
@@ -67,7 +67,7 @@ export const tour_list = [
         tour_image: padang
     },
     {
-        tour_name: "Aceh",
-        tour_image: aceh
+        tour_name: "Bali",
+        tour_image: bali
     }]
 

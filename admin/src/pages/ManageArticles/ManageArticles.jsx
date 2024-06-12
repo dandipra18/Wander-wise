@@ -5,7 +5,7 @@ import { DOMAIN } from "../../config";
 import "./ManageArticles.css";
 
 function ManageArticles() {
-  const [ articles, setArticles ] = useState([]);
+  const [articles, setArticles] = useState([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -22,11 +22,17 @@ function ManageArticles() {
       const response = await axios.delete(`${DOMAIN}/api/articles/${id}`);
       if (response.data.success) {
         setArticles(articles.filter((article) => article._id !== id));
+
         // Delete comments associated with the deleted article
-        const commentResponse = await axios.delete(
-          `${DOMAIN}/api/comments/article/${id}`
-        );
-        if (!commentResponse.data.success) {
+        const commentResponse = await axios.delete(`${DOMAIN}/api/comments/article/${id}`);
+        if (commentResponse.data.success) {
+          Swal.fire({
+            icon: "success",
+            title: "Artikel berhasil dihapus!",
+            showConfirmButton: false,
+            timer: 1500,
+          });
+        } else {
           Swal.fire("Error", "Failed to delete comments", "error");
         }
       } else {
@@ -71,18 +77,12 @@ function ManageArticles() {
             {articles.map((article) => (
               <tr key={article._id}>
                 <td>
-                  <img
-                    src={`${DOMAIN}/uploads/${article.image}`}
-                    alt={article.title}
-                    className="article-image"
-                  />
+                  <img src={`${DOMAIN}/uploads/${article.image}`} alt={article.title} className="article-image" />
                 </td>
                 <td>{article.title}</td>
                 <td className="table-content">{article.content}</td>
                 <td>
-                  <button onClick={() => confirmDelete(article._id)}>
-                    Hapus
-                  </button>
+                  <button onClick={() => confirmDelete(article._id)}>Hapus</button>
                 </td>
               </tr>
             ))}

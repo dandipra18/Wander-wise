@@ -13,6 +13,15 @@ function ToursItem({ id, name, price, description, image }) {
     navigate(`/tours/${id}`);
   };
 
+  const formatRupiah = (price) => {
+    return price.toLocaleString("id-ID", {
+      style: "currency",
+      currency: "IDR",
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    });
+  };
+
   return (
     <>
       <div className="tours-item" onClick={goToDetailPage}>
@@ -30,11 +39,11 @@ function ToursItem({ id, name, price, description, image }) {
           </div>
           <p className="tours-item-desc">
             {description.length > 50
-              // eslint-disable-next-line react/prop-types
-              ? description.substring(0, 50) + "..."
+              ? // eslint-disable-next-line react/prop-types
+                description.substring(0, 50) + "..."
               : description}
           </p>
-          <p className="tours-item-price">Rp.{price}</p>
+          <p className="tours-item-price">{formatRupiah(price)}</p>
         </div>
       </div>
     </>
