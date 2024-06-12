@@ -18,20 +18,21 @@ function App() {
     <>
       <ToastContainer />
       <Navbar />
-      <hr />
       <div className="app-content">
         <Sidebar />
-        <div className="inner-body">
-          <Routes>
-            <Route path="/add" element={<Add />} />
-            <Route path="/list" element={<List />} />
-            <Route path="/orders" element={<Orders />} />
-            <Route path="/update/:id" element={<Update />} />
-            <Route path="/articles/add" element={<AddArticle />} />
-            <Route path="/articles/list" element={<ManageArticles />} />
-            <Route path="/admin/comments" element={<AdminLayout />} />
-            <Route path="/admin/users" element={<UsersList />} />
-          </Routes>
+        <div className="main-container">
+          <div className="inner-body">
+            <Routes>
+              <Route path="/add" element={<Add />} />
+              <Route path="/list" element={<List />} />
+              <Route path="/orders" element={<Orders />} />
+              <Route path="/update/:id" element={<Update />} />
+              <Route path="/articles/add" element={<AddArticle />} />
+              <Route path="/articles/list" element={<ManageArticles />} />
+              <Route path="/admin/comments" element={<AdminLayout />} />
+              <Route path="/admin/users" element={<UsersList />} />
+            </Routes>
+          </div>
         </div>
       </div>
     </>

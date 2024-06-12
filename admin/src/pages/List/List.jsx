@@ -8,7 +8,7 @@ import axios from "axios";
 import { assets } from "../../assets/assets";
 
 function List() {
-  const [list, setList] = useState([]);
+  const [ list, setList ] = useState([]);
 
   const fetchList = async () => {
     const response = await axios.get(`${DOMAIN}/api/tours/list`);
@@ -27,34 +27,44 @@ function List() {
   return (
     <>
       <div className="list add flex-col">
-        <p>Daftar Wisata</p>
-        <div className="list-table">
-          <div className="list-table-format title">
-            <b>Gambar</b>
-            <b>Nama</b>
-            <b>Lokasi</b>
-            <b>Harga</b>
-            <b>Action</b>
-          </div>
-          {list.map((item, index) => {
-            return (
-              <div className="list-table-format" key={index}>
-                <img
-                  className="tour-image"
-                  src={`${DOMAIN}/images/` + item.image}
-                  alt={item.name}
-                />
-                <p>{item.name}</p>
-                <p>{item.location}</p>
-                <p>Rp.{item.price}</p>
-                <Link to={`/update/${item._id}`}>
-                  <p className="cursor-pointer">
-                    <img src={assets.edit_icon} className="edit-icon" />
-                  </p>
-                </Link>
-              </div>
-            );
-          })}
+        <h1 className="header">Daftar Wisata</h1>
+        <div className="table-container">
+          <table className="list-table">
+            <thead>
+              <tr className="list-table-format title">
+                <th className="image-container">Gambar</th>
+                <th className="name-field">Nama</th>
+                <th>Lokasi</th>
+                <th>Harga</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              {list.map((item, index) => {
+                return (
+                  <tr className="list-table-format" key={index}>
+                    <td className="image-container">
+                      <img
+                        className="tour-image"
+                        src={`${DOMAIN}/images/` + item.image}
+                        alt={item.name}
+                      />
+                    </td>
+                    <td className="name-field">{item.name}</td>
+                    <td>{item.location}</td>
+                    <td>Rp.{item.price}</td>
+                    <td className="action-button">
+                      <Link to={`/update/${item._id}`}>
+                        <p className="cursor-pointer">
+                          <img src={assets.edit_icon} className="edit-icon" />
+                        </p>
+                      </Link>
+                    </td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
         </div>
       </div>
     </>

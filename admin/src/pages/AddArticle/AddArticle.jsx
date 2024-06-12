@@ -43,7 +43,7 @@ function AddArticle() {
 
   return (
     <div className="add-article">
-      <h2>Add Article</h2>
+      <h1 className="header">Add Article</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Title:

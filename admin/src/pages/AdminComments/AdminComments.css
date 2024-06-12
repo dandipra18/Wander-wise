@@ -1,11 +1,6 @@
 .admin-comments {
-  padding: 20px;
-}
-
-.admin-comments h2 {
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 24px;
+  padding: 2rem;
+  padding-top: 50px;
 }
 
 .comments-table {
@@ -16,13 +11,17 @@
 
 .comments-table th,
 .comments-table td {
-  border: 1px solid #ddd;
+  border: none;
   padding: 12px;
-  text-align: center;
+  text-align: left;
+}
+
+.table-comment{
+  width: 100%;
 }
 
 .comments-table th {
-  background-color: #f4f4f4;
+  background-color: #fff;
 }
 
 .comments-table button {

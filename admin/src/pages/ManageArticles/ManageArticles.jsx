@@ -5,7 +5,7 @@ import { DOMAIN } from "../../config";
 import "./ManageArticles.css";
 
 function ManageArticles() {
-  const [articles, setArticles] = useState([]);
+  const [ articles, setArticles ] = useState([]);
 
   useEffect(() => {
     const fetchArticles = async () => {
@@ -23,13 +23,18 @@ function ManageArticles() {
       if (response.data.success) {
         setArticles(articles.filter((article) => article._id !== id));
         // Delete comments associated with the deleted article
-        await axios.delete(`${DOMAIN}/api/comments/article/${id}`);
+        const commentResponse = await axios.delete(
+          `${DOMAIN}/api/comments/article/${id}`
+        );
+        if (!commentResponse.data.success) {
+          Swal.fire("Error", "Failed to delete comments", "error");
+        }
       } else {
         Swal.fire("Error", "Failed to delete article", "error");
       }
     } catch (error) {
       console.error("Error deleting article or comments", error);
-      Swal.fire("Error", "Failed to delete article", "error");
+      Swal.fire("Error", "Failed to delete article or comments", "error");
     }
   };
 
@@ -51,37 +56,39 @@ function ManageArticles() {
 
   return (
     <div className="manage-articles">
-      <h2>Manage Articles</h2>
-      <table className="articles-table">
-        <thead>
-          <tr>
-            <th>Image</th>
-            <th>Title</th>
-            <th>Content</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {articles.map((article) => (
-            <tr key={article._id}>
-              <td>
-                <img
-                  src={`${DOMAIN}/uploads/${article.image}`}
-                  alt={article.title}
-                  className="article-image"
-                />
-              </td>
-              <td>{article.title}</td>
-              <td>{article.content}</td>
-              <td>
-                <button onClick={() => confirmDelete(article._id)}>
-                  Hapus
-                </button>
-              </td>
+      <h1 className="header">Manage Articles</h1>
+      <div className="table-container">
+        <table className="articles-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Title</th>
+              <th className="table-content">Content</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {articles.map((article) => (
+              <tr key={article._id}>
+                <td>
+                  <img
+                    src={`${DOMAIN}/uploads/${article.image}`}
+                    alt={article.title}
+                    className="article-image"
+                  />
+                </td>
+                <td>{article.title}</td>
+                <td className="table-content">{article.content}</td>
+                <td>
+                  <button onClick={() => confirmDelete(article._id)}>
+                    Hapus
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

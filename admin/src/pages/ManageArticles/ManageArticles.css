@@ -1,12 +1,25 @@
 .manage-articles {
-  padding: 20px;
+  padding: 2rem;
+  padding-top: 50px;
+}
+
+.manage-articles * {
+  text-align: left;
 }
 
 .manage-articles h2 {
   margin-bottom: 20px;
-  text-align: center;
   font-size: 24px;
 }
+
+.table-content {
+  width: 100%;
+}
+
+thead * {
+  background-color: white;
+}
+
 
 .articles-table {
   width: 100%;
@@ -16,13 +29,7 @@
 
 .articles-table th,
 .articles-table td {
-  border: 1px solid #ddd;
   padding: 12px;
-  text-align: center;
-}
-
-.articles-table th {
-  background-color: #f4f4f4;
 }
 
 .article-image {

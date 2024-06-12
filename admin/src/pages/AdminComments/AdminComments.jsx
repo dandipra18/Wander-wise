@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import "./AdminComments.css";
 
 function AdminComments() {
-  const [comments, setComments] = useState([]);
+  const [ comments, setComments ] = useState([]);
 
   useEffect(() => {
     const fetchComments = async () => {
@@ -57,29 +57,32 @@ function AdminComments() {
 
   return (
     <div className="admin-comments">
-      <h2>Daftar Komentar</h2>
-      <table className="comments-table">
-        <thead>
-          <tr>
-            <th>Article</th>
-            <th>Name</th>
-            <th>Comment</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {comments.map((comment) => (
-            <tr key={comment._id}>
-              <td>{comment.articleId.title}</td>
-              <td>{comment.name}</td>
-              <td>{comment.comment}</td>
-              <td>
-                <button onClick={() => handleDelete(comment._id)}>Hapus</button>
-              </td>
+      <h1 className="header">Daftar Komentar</h1>
+      <div className="table-container">
+
+        <table className="comments-table">
+          <thead>
+            <tr>
+              <th>Article</th>
+              <th>Name</th>
+              <th className="table-comment">Comment</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {comments.map((comment) => (
+              <tr key={comment._id}>
+                <td>{comment.articleId.title}</td>
+                <td>{comment.name}</td>
+                <td className="table-comment">{comment.comment}</td>
+                <td>
+                  <button onClick={() => handleDelete(comment._id)}>Hapus</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }

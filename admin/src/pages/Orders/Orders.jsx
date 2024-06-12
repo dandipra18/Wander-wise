@@ -78,7 +78,7 @@ function Orders() {
   return (
     <>
       <div className="order add">
-        <h3>Halaman Pesanan Tiket</h3>
+        <h1 className="header">Halaman Pesanan Tiket</h1>
         <div className="order-list">
           {orders.map((order, index) => (
             <div key={index} className="order-item">

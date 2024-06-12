@@ -1,40 +1,42 @@
 .admin-users {
-    padding: 20px;
-  }
-  
-  .admin-users h2 {
-    margin-bottom: 20px;
-    text-align: center;
-    font-size: 24px;
-  }
-  
-  .users-table {
-    width: 100%;
-    border-collapse: collapse;
-  }
-  
-  .users-table th,
-  .users-table td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
-  }
-  
-  .users-table th {
-    background-color: #f4f4f4;
-  }
-  
-  .users-table button {
-    padding: 10px 20px;
-    background-color: red;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-  }
-  
-  .users-table button:hover {
-    background-color: darkred;
-  }
-  
+  padding: 2rem;
+  padding-top: 50px;
+}
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.users-table th,
+.users-table td {
+  border: none;
+  padding: 12px;
+  text-align: left;
+}
+
+.users-table th {
+  background-color: #fff;
+}
+
+.table-mw{
+  min-width: 10rem;
+}
+
+.table-max {
+  width: 100%;
+}
+
+.users-table button {
+  padding: 10px 20px;
+  background-color: red;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.users-table button:hover {
+  background-color: darkred;
+}

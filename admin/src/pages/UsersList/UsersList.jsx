@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 import "./UsersList.css";
 
 function AdminUsers() {
-  const [users, setUsers] = useState([]);
+  const [ users, setUsers ] = useState([]);
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -57,27 +57,29 @@ function AdminUsers() {
 
   return (
     <div className="admin-users">
-      <h2>User List</h2>
-      <table className="users-table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Action</th>
-          </tr>
-        </thead>
-        <tbody>
-          {users.map((user) => (
-            <tr key={user._id}>
-              <td>{user.name}</td>
-              <td>{user.email}</td>
-              <td>
-                <button onClick={() => handleDelete(user._id)}>Hapus</button>
-              </td>
+      <h1 className="header">User List</h1>
+      <div className="table-container">
+        <table className="users-table">
+          <thead>
+            <tr>
+              <th className="table-mw">Name</th>
+              <th className="table-max">Email</th>
+              <th>Action</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {users.map((user) => (
+              <tr key={user._id}>
+                <td className="table-mw">{user.name}</td>
+                <td className="table-max"d>{user.email}</td>
+                <td>
+                  <button onClick={() => handleDelete(user._id)}>Hapus</button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
     </div>
   );
 }
