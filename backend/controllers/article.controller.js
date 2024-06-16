@@ -48,8 +48,16 @@ const deleteArticle = async (req, res) => {
   try {
     const { id } = req.params;
     const article = await articleModel.findById(id);
+    if (!article) {
+      return res.status(404).json({ success: false, message: "Artikel tidak ditemukan" });
+    }
     if (article.image) {
-      fs.unlinkSync(path.join("uploads", article.image));
+      const imagePath = path.join('uploads', article.image);
+      if (fs.existsSync(imagePath)) {
+        fs.unlinkSync(imagePath);
+      } else {
+        console.warn(`File tidak ditemukan: ${imagePath}`);
+      }
     }
     await articleModel.findByIdAndDelete(id);
     await commentModel.deleteMany({ articleId: id });
@@ -59,5 +67,6 @@ const deleteArticle = async (req, res) => {
     res.json({ success: false, message: "Gagal menghapus artikel." });
   }
 };
+
 
 export { addArticle, getArticles, getArticleById, deleteArticle };

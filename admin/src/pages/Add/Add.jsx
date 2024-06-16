@@ -62,23 +62,74 @@ function Add() {
         <div className="form-left">
           <div className="add-tour-name flex-col">
             <p>Nama Wisata *</p>
-            <input onChange={onChangeHandler} value={data.name} type="text" required name="name" placeholder="Type here" />
+            <input
+              onChange={onChangeHandler}
+              value={data.name}
+              type="text"
+              required
+              name="name"
+              placeholder="Type here"
+            />
           </div>
           <div className="add-tour-desc flex-col">
             <p>Deskripsi Wisata *</p>
-            <textarea onChange={onChangeHandler} value={data.description} required name="description" rows="6" placeholder="Write content here..." />
+            <textarea
+              onChange={onChangeHandler}
+              value={data.description}
+              required
+              name="description"
+              rows="6"
+              placeholder="Write content here..."
+            />
           </div>
           <div className="add-tour-price">
             <div className="add-location flex-col">
               <p>Lokasi Wisata *</p>
-              <select name="location" onChange={onChangeHandler} value={data.location}>
+              <select
+                name="location"
+                onChange={onChangeHandler}
+                value={data.location}
+              >
                 <option value="">- Pilih Lokasi Wisata -</option>
-                <option value="Bali">Bali</option>
-                <option value="Jakarta">Jakarta</option>
-                <option value="Yogyakarta">Yogyakarta</option>
-                <option value="Medan">Medan</option>
-                <option value="Padang">Padang</option>
                 <option value="Aceh">Aceh</option>
+                <option value="Sumatera Utara">Sumatera Utara</option>
+                <option value="Sumatera Selatan">Sumatera Selatan</option>
+                <option value="Bali">Bali</option>
+                <option value="Sumatera Barat">Sumatera Barat</option>
+                <option value="Bengkulu">Bengkulu</option>
+                <option value="Riau">Riau</option>
+                <option value="Kepulauan Riau">Kepulauan Riau</option>
+                <option value="Jambi">Jambi</option>
+                <option value="Lampung">Lampung</option>
+                <option value="Bangka Belitung">Bangka Belitung</option>
+                <option value="Kalimantan Barat">Kalimantan Barat</option>
+                <option value="Kalimantan Timur">Kalimantan Timur</option>
+                <option value="Kalimantan Selatan">Kalimantan Selatan</option>
+                <option value="Kalimantan Utara">Kalimantan Utara</option>
+                <option value="Banten ">Banten</option>
+                <option value="DKI Jakarta ">DKI Jakarta </option>
+                <option value="Jawa Barat">Jawa Barat</option>
+                <option value="Jawa Tengah">Jawa Tengah</option>
+                <option value="Daerah Istimewa Yogyakarta">
+                  Daerah Istimewa Yogyakarta
+                </option>
+                <option value="Jawa Timur">Jawa Timur</option>
+                <option value="Nusa Tenggara Timur">Nusa Tenggara Timur</option>
+                <option value="Nusa Tenggara Barat">Nusa Tenggara Barat</option>
+                <option value="Gorontalo">Gorontalo </option>
+                <option value="Sulawesi Barat">Sulawesi Barat</option>
+                <option value="Sulawesi Tengah">Sulawesi Tengah</option>
+                <option value="Sulawesi Utara">Sulawesi Utara</option>
+                <option value="Sulawesi Tenggara">Sulawesi Tenggara</option>
+                <option value="Sulawesi Selatan">Sulawesi Selatan</option>
+                <option value="Maluku Utara">Maluku Utara</option>
+                <option value="Maluku">Maluku</option>
+                <option value="Papua Barat">Papua Barat </option>
+                <option value="Papua">Papua</option>
+                <option value="Papua Tengah">Papua Tengah</option>
+                <option value="Papua Pegunungan">Papua Pegunungan </option>
+                <option value="Papua Selatan">Papua Selatan </option>
+                <option value="Papua Barat Daya">Papua Barat Daya</option>
               </select>
             </div>
           </div>
@@ -87,13 +138,31 @@ function Add() {
           <div className="add-image-upload flex-col">
             <p>Upload Gambar *</p>
             <label htmlFor="image">
-              <img src={image ? URL.createObjectURL(image) : assets.upload_area} alt="upload image" />
+              <img
+                src={image ? URL.createObjectURL(image) : assets.upload_area}
+                alt="upload image"
+              />
             </label>
-            <input onChange={(e) => setImage(e.target.files[0])} type="file" id="image" required hidden />
+            <input
+              onChange={(e) => setImage(e.target.files[0])}
+              type="file"
+              id="image"
+              required
+              hidden
+            />
           </div>
           <div className="add-price flex-col">
             <p>Harga Tiket *</p>
-            <CurrencyInput id="price-input" name="price" placeholder="Rp.25.000" defaultValue={0} decimalsLimit={2} prefix="Rp " onValueChange={(value) => onPriceChange(value)} className="price-input" />
+            <CurrencyInput
+              id="price-input"
+              name="price"
+              placeholder="Rp.25.000"
+              defaultValue={0}
+              decimalsLimit={2}
+              prefix="Rp "
+              onValueChange={(value) => onPriceChange(value)}
+              className="price-input"
+            />
           </div>
         </div>
         <div className="form-top">

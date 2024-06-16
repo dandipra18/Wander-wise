@@ -10,9 +10,10 @@ function Footer() {
           <div className="footer-content-left">
             <img src={assets.logo} alt="logo" />
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-              Perspiciatis earum eum libero iure voluptatem. Placeat omnis
-              necessitatibus amet pariatur numquam?
+              WanderWise adalah platform pemesanan tiket online yang menyediakan
+              akses mudah untuk merencanakan perjalanan impian Anda. Temukan
+              destinasi yang menakjubkan dan pesan tiket dengan mudah, semua
+              dalam satu tempat.
             </p>
             <div className="footer-social-icons">
               <img src={assets.facebook_icon} alt="fb" />

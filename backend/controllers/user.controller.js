@@ -38,7 +38,7 @@ const registerUser = async (req, res) => {
       return res.json({ success: false, message: "Email already registered." });
     }
 
-    //validation
+   
     if (!validator.isEmail(email)) {
       return res.json({
         success: false,
@@ -52,11 +52,11 @@ const registerUser = async (req, res) => {
       });
     }
 
-    //encryption
+    
     const salt = await bcrypt.genSalt(12);
     const hashedPassword = await bcrypt.hash(password, salt);
 
-    //user creation
+
     const newUser = new userModel({
       name: name,
       email: email,
@@ -64,7 +64,7 @@ const registerUser = async (req, res) => {
     });
     const user = await newUser.save();
 
-    //token generation
+  
     const token = createToken(user._id);
     if (user) {
       return res.json({
@@ -79,7 +79,7 @@ const registerUser = async (req, res) => {
     res.json({ success: false, message: "Error registering user." });
   }
 };
-// Get all users
+
 const getAllUsers = async (req, res) => {
   try {
     const users = await userModel.find({});
@@ -90,7 +90,7 @@ const getAllUsers = async (req, res) => {
   }
 };
 
-// Delete user by ID
+
 const deleteUser = async (req, res) => {
   try {
     const { id } = req.params;

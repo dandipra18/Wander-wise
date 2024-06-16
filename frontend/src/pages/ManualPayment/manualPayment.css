@@ -6,6 +6,8 @@
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   background-color: #f9f9f9;
+  animation: fadeIn 1s ease-in-out;
+  text-align: center;
 }
 
 .manual-payment h2 {
@@ -13,6 +15,7 @@
   margin-bottom: 20px;
   text-align: center;
   color: #333;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .manual-payment p {
@@ -20,6 +23,7 @@
   line-height: 1.6;
   margin-bottom: 10px;
   color: #555;
+  animation: slideIn 1.5s ease-in-out;
 }
 
 .manual-payment hr {
@@ -39,9 +43,39 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  animation: fadeIn 2s ease-in-out;
 }
 
 .manual-payment button:hover {
   background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+
+.payment-logo {
+  max-width: 150px;
+  margin: 20px auto;
+  animation: fadeIn 2s ease-in-out;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

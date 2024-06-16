@@ -1,6 +1,6 @@
 .footer{
     margin-top: 100px;
-    color: #d9d9d9;
+    color: black;
     background-color: #4caf50;
     display: flex;
     flex-direction: column;
@@ -28,7 +28,7 @@
     cursor: pointer;
 }
 .footer-content-center h2, .footer-content-right h2{
-    color: white;
+    color: black;
     font-size: medium;
 }
 .footer-social-icons img{
@@ -40,7 +40,7 @@
     width: 100%;
     height: 2px;
     margin: 20px 0;
-    background-color: gray;
+    background-color: black;
     border: none;
 }
 
